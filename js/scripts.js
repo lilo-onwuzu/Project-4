@@ -94,21 +94,23 @@ $(document).ready(function(){ // when the document is refreshed and finishes loa
     $(".inputBatch").each(function(){
       // this is an each loop. Find inputBatch class. For each inputBatch class, compute the following
 
-      var importYear = $this.find("input.year").val(); // .val() imports as a string unless parseInt'd. At any point when you hit submit, transfer in the data from the input fields
-      var importStreet = $this.find("input.street").val();
-      var importState = $this.find("input.state").val();
-      var importCountry = $this.find("input.country").val();
-      var importNotes = $this.find("input.notes").val();
+      var importYear = parseInt($(this).find("input#year").val()); // .val() imports as a string unless parseInt'd. At any point when you hit submit, transfer in the data from the input fields
+      console.log(importYear);
+      var importStreet = $(this).find("input#street").val();
+      var importState = $(this).find("input#state").val();
+      console.log(importState);
+      var importCountry = $(this).find("input#country").val();
+      var importNotes = $(this).find("input#notes").val();
       var importAll = new Push(importYear, importStreet, importState, importCountry, importNotes); // declare importAll as an instantiation of the Push object/construct
       var outputarray = importAll.pushIn(); // use the .pushIn() prototype to create an array of all the info from one input field batch
 
       var newCountryYear = new CountryYear(importCountry, importYear);
       // newCountryYear is an instantiation of the Countryyear construct and computes a new object newCountryYear to collect the country and year info from this group
-      var outputCountryYear = CountryYear.fullPlace();
+      var outputCountryYear = newCountryYear.fullPlace();
       // The .fullPlace() prototype is applied to "this" instantiation of CountryYear to concatenate country and year
       var newAddress = new Address(importStreet, importState, importCountry);
       // newAddress is an instantiation of the Address construct and computes a new object newAddress to collect the street, state and country info of this group
-      var outputAddress = Address.fullAddress();
+      var outputAddress = newAddress.fullAddress();
       //  The .fullAddress() prototype is applied to "this" instantiation of Address to concatenate
 
       $("#list").append(outputCountryYear);

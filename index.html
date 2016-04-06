@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Vacation List</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/jquery-1.12.2.js"></script>
+    <script src="js/scripts.js"></script>
+  </head>
+
+  <body>
+
+    <div class="jumbotron one">
+      <h1>Places I've Been</h1>
+      <h2 class="lead"><em>Start a journal of all the places in the world you have visited!</em></h2>
+    </div>
+
+    <div class="jumbotron two">
+      <h3 class="styleheading">About Vacation List</h3>
+      <p></p>
+      <h4>Created By:</h4>
+      <p>Lilo Onwuzu</p>
+      <h4>GitHub Username:</h4>
+      <p>lilo-onwuzu</p>
+      <h4>Level 1 Week 4 Project for:</h4>
+      <p>Javascript</p>
+    </div>
+
+    <div class="container">
+
+      <form id="places">
+        <div class= "inputBatch">
+          <div class="form-group">
+            <label for="year">What year did you visit this place:</label>
+            <input class="year" type="text">
+            <!-- these inputs should be classes not ids as there may be multiple inputs of the same type -->
+          </div>
+          <div class="form-group">
+            <label for="street">What is the street address of the place you stayed:</label>
+            <input class="street" type="text">
+          </div>
+          <div class="form-group">
+            <label for="state">Enter the state which you have visited here:</label>
+            <input class="state" type="text">
+          </div>
+          <div class="form-group">
+            <label for="country">Enter a country you have visited here:</label>
+            <input class="country" type="text">
+          </div>
+          <div class="form-group">
+            <label for="notes">Please enter some memorable notes about this visit:</label>
+            <input class="notes" type="text">
+          </div>
+
+          <button type="submit" class="btn list">Add Places To List</button>
+
+        </div>
+      </form>
+
+      <button class="btn add">Add Input Fields</button>
+      <button class="btn remove">Hide Input Fields</button>
+
+      <div class="placesList">
+        <!-- div for viewing places as a list -->
+        <p>Click on these places you visted to view details</p>
+        <ul><li id="list"></li></ul>
+      </div>
+
+      <div class="placesInfo">
+        <!-- div for more information when you click on an element in placesList div -->
+        <h3><span class= "addPlace"></span></h3>
+        <p>Address:</p>
+        <p><span class= "addAddress"></span></p>
+        <p><span class= "addNotes"></span></p>
+      </div>
+
+    </div>
+
+  </body>
+</html>

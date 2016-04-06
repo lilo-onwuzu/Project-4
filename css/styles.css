@@ -1,0 +1,38 @@
+.placesList{
+  display: none;
+}
+.placesInfo{
+  display: none;
+}
+#list {
+  cursor: pointer;
+  color: #0088cc;
+}
+#list:hover {
+  text-decoration: underline;
+}
+body{
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.container{
+  padding-left: 10px;
+}
+.one {
+  background-color: #56A8AE;
+  text-align: center;
+}
+.two{
+  float : left;
+  background-color: #DDB227;
+  height: 1000px;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-right: 50px;
+}
+.two p{
+  font-size: 15px;
+}
+.one h2{
+  color: white;
+}

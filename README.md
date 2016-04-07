@@ -1,16 +1,16 @@
-# _Ping Pong Game_
+# _Vacation List_
 
-#### _Week 3 Project Epicodus_
+#### _Week 4 Project Epicodus_
 
 #### By _**Ililochi Onwuzu**_
 
 ## Description
 
-_This code allows the user to enter an input number and then counts up to the input number while replacing some of the numbers with ping, pong or pingpong using a simple business logic. Practice for seperation of business and user interface code in Javascript_
+_This code allows the user to enter vacation entries and display them as a list. The software can handle an arbitrary number of input fields. The user can add or hide input fields as desired. It also has click listeners to show more information when an item on the list is clicked on. Practiced: Object Oriented Javascript, Arrays, Looping_
 
 ## Setup/Installation Requirements
 
-* _Enter a desired number to view the list. No need to refresh_
+* _Enter your vacation location information. Enter as many as desired. Click the items in the list to view more information_
 
 
 ## Known Bugs

@@ -98,6 +98,7 @@ $(document).ready(function(){ // when the document is refreshed and finishes loa
     // this is an each loop. For every new-inputBatch class which constitutes the initial field batch and all the appended ones, compute the following. We will use this loop to compile a super array with an arbitrary number of sub-arrays that hold all the info from each input field batch.
 
       var importYear = parseInt($(this).find("input#year").val());
+      // "this" points to the new-inputBatch class. We are asking JQ to find inputyear id in the first class and set it to import year. Go through the rest below and repeat for the other input classes. At the end of the loop we store newFull which contains all the data for one input field in a globally defined array.
       var importStreet = $(this).find("input#street").val();
       var importState = $(this).find("input#state").val();
       var importCountry = $(this).find("input#country").val();
@@ -124,15 +125,17 @@ $(document).ready(function(){ // when the document is refreshed and finishes loa
     // newMakeArrays will be called using the newMakeArray placement/placeholder
       $("#list").append('<li><span class="clickToView">'+ newMakeArray.countryYear + '</span></li>');
       // Here we are asking JQuery to find the list (#list) and append <li>list of places</li> to the html code. Should read: Paris, 1992 for example
-      // $(".clickToView").click(function(){
-      // // after the countryYear items have been appended, this click listener displays more information
-      //
-      //   $(".addCountryYear").text(newMakeArray.countryYear);
-      //   $(".addAddress").text(newMakeArray.address);
-      //   $(".addNotes").text(newMakeArray.notes);
-      //   // newMakeArray represents newFull1, 2 etc. countryyear, address and notes are properties of newFull(from Full construct) which is a property of newMakeArray(MakeArray construct)
-      //   $(".placesInfo").toggle();
+
+      $(".clickToView").last().click(function(){
+      // after the countryYear items have been appended, this click listener displays more information
+      // When you use an event listener to point to a class with multiple possibilities, you need to indicate which one to point to exactly. If not it will eventually only execute for the final one. Here we are saying attach "this" event listener to the last list element that was appended.
+        $(".addCountryYear").text(newMakeArray.countryYear);
+        $(".addAddress").text(newMakeArray.address);
+        $(".addNotes").text(newMakeArray.notes);
+        $(".placesInfo").toggle();
+        // newMakeArray represents newFull1, 2 etc. countryyear, address and notes are properties of newFull(from Full construct) which is a property of newMakeArray(MakeArray construct)
       });
+
     });
 
     $(".placesList").show(); // show the places list when you hit submit. Everything above this executes but is still hidden until showing

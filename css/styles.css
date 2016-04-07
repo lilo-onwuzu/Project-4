@@ -4,11 +4,11 @@
 .placesInfo{
   display: none;
 }
-#list {
+.clickToView {
   cursor: pointer;
   color: #0088cc;
 }
-#list:hover {
+.clickToView:hover {
   text-decoration: underline;
 }
 body{

@@ -1,4 +1,4 @@
-# _Vacation List_
+# _Pizza Order_
 
 #### _Week 4 Project Epicodus_
 
@@ -6,11 +6,11 @@
 
 ## Description
 
-_This code allows the user to enter vacation entries and display them as a list. The software can handle an arbitrary number of input fields. The user can add or hide input fields as desired. It also has click listeners to show more information when an item on the list is clicked on. Practiced: Object Oriented Javascript, Arrays, Looping_
+_This code allows the user to order multiple pizzas with toppings. It asks the uses a form to collect details of the pizza. The user can add more fields to order more pizzas with different toppings. It calculates the amount charged and presents an itemized list of the order after the order is placed. Practiced: Object Oriented Javascript, Objects within Objects, Arrays, Looping. The page is styled using both bootstraps CSS as well as a custom CSS file_
 
 ## Setup/Installation Requirements
 
-* _Enter your vacation location information. Enter as many as desired. Click the items in the list to view more information_
+* _Clone this repository to set up_
 
 
 ## Known Bugs

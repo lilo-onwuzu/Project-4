@@ -1,12 +1,33 @@
-.placesList{
+
+.hideAddress{
   display: none;
 }
-.placesInfo{
+.orderList{
   display: none;
+}
+.orderInfo{
+  display: none;
+}
+.output{
+  padding-top: 30px;
+}
+.orderList p{
+  font-size: 15px;
+}
+.btn{
+  background-color: #56A8AE;
+}
+.btn:hover{
+  background-color: #56A8AE;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.one h1{
+  color: #DDB227;
 }
 .clickToView {
   cursor: pointer;
-  color: #0088cc;
+  /*color: #0088cc;*/
 }
 .clickToView:hover {
   text-decoration: underline;
@@ -24,7 +45,7 @@ body{
 .two{
   float : left;
   background-color: #DDB227;
-  height: 1000px;
+  height: 800px;
   color: white;
   padding-left: 20px;
   padding-right: 20px;

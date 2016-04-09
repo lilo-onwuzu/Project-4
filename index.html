@@ -2,7 +2,7 @@
 <html>
 
   <head>
-    <title>Vacation List</title>
+    <title>Boxer Pizza</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <script src="js/jquery-1.12.2.js"></script>
@@ -12,70 +12,116 @@
   <body>
 
     <div class="jumbotron one">
-      <h1>Places I've Been</h1>
-      <h2 class="lead"><em>Start a journal of all the places in the world you have visited!</em></h2>
+      <h1>Boxer Pizza</h1>
+      <img src="img/lovepizza.jpeg">
     </div>
 
     <div class="jumbotron two">
-      <h3 class="styleheading">About Vacation List</h3>
+      <h3 class="styleheading">About Boxer Pizza</h3>
       <p></p>
-      <h4>Created By:</h4>
-      <p>Lilo Onwuzu</p>
-      <h4>GitHub Username:</h4>
-      <p>lilo-onwuzu</p>
-      <h4>Level 1 Week 4 Project for:</h4>
-      <p>Javascript</p>
+      <h4>Visit Us:</h4>
+      <p>123 Rice Street, Portland OR</p>
+      <h4>Contact Us:</h4>
+      <p>5034083899</p>
     </div>
 
     <div class="container">
+      <form id="order">
 
-      <form id="places">
-        <div id= "inputBatch" class= "new-inputBatch">
+        <div class="clientDetails">
           <div class="form-group">
-            <label for="year">What year did you visit this place:</label>
-            <input id="year" type="text" class= "new-year">
-            <!-- these inputs should be classes not ids as there may be multiple inputs of the same type -->
-          </div>
-          <div class="form-group">
-            <label for="street">What is the street address of the place you stayed:</label>
-            <input id="street" type="text" class= "new-street">
-          </div>
-          <div class="form-group">
-            <label for="state">Enter the state which you have visited here:</label>
-            <input id="state" type="text" class= "new-state">
-          </div>
-          <div class="form-group">
-            <label for="country">Enter a country you have visited here:</label>
-            <input id="country" type="text" class= "new-country">
-          </div>
-          <div class="form-group">
-            <label for="notes">Please enter some memorable notes about this visit:</label>
-            <input id="notes" type="text" class= "new-notes">
+            <label for="orderName">Enter Name:</label>
+            <input id="orderName" type="text" class="new-orderName">
           </div>
 
-          <button type="submit" class="btn list">Add Places To List</button>
+          <div class="form-group">
+            <strong>Choose Pick-Up or Delivery:</strong>
+              <select id="method">
+              <option>Pick-Up</option>
+              <option>Delivery</option>
+              </select>
+          </div>
 
+          <div class="form-group hideAddress">
+            <label for="address">Enter Address:</label>
+            <input id="address" type="text" class="new-address">
+          </div>
+
+        </div> <!-- end of client details -->
+
+        <div id= "pizzaDetails" class= "new-pizzaDetails">
+
+          <div class="form-group size">
+            <strong>Choose a size:</strong>
+              <select id="size" class="new-size">
+              <option>Small</option>
+              <option>Medium</option>
+              <option>Large</option>
+              </select>
+          </div>
+
+          <div class="form-group topping">
+            <strong>Choose Toppings:</strong>
+            <div class="checkbox">
+              <label>
+              <input id="new-bacon" type="checkbox" name="topping" value="Bacon">
+                Bacon
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+              <input id="new-pepperoni" type="checkbox" name="topping" value="Pepperoni">
+              Pepperoni
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+              <input id="new-pineapple" type="checkbox" name="topping" value="Pineapple">
+              Pineapple
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+              <input id="new-spinach" type="checkbox" name="topping" value="Spinach">
+              Spinach
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+              <input id="new-peppers" type="checkbox" name="topping" value="Green Peppers">
+              Green Peppers
+              </label>
+            </div>
+          </div>
+          <!-- end of form-group topping -->
+
+        </div> <!-- end of pizza details div -->
+
+        <div class="form-group note">
+          <label for="note">Add a note for your driver:</label>
+          <input id="note" type="text">
         </div>
+
+        <button type="submit" class="btn"><strong>Place Order</strong></button>
+        <button class="btn addPizza"><strong>Add Another Pizza</strong></button>
+        <button class="btn removePizza"><strong>Remove Pizza</strong></button>
+
+        <div class="output">
+          <div class="orderList">
+            <p><em><span class="addName"></span>, your pizza is on the way to <span class="addAddress"></span>!</em></p>
+            <p>You will be charged $<span class="addTotal"></span></p>
+            <h4><strong>Driver's Notes:</strong></h4>
+            <p><span class= "addNotes"></span></p>
+            <h4><strong>Itemized Order List:</strong></h4>
+            <ul><li id="list"></li></ul>
+          </div>
+
+          <div class="orderInfo">
+            <ul><li id="addTopping"></li></ul>
+          </div>
+        </div> <!-- end of output div -->
+
       </form>
-
-      <button class="btn addField">Add Input Fields</button>
-      <button class="btn removeField">Hide Input Fields</button>
-
-      <div class="placesList">
-        <!-- div for viewing places as a list -->
-        <p>Click on these places you visted to view details</p>
-        <ul><li id="list"></li></ul>
-      </div>
-
-      <div class="placesInfo">
-        <!-- div for more information when you click on an element in placesList div -->
-        <h3><span class= "addCountryYear"></span></h3>
-        <p>Address:</p>
-        <p><span class= "addAddress"></span></p>
-        <p><span class= "addNotes"></span></p>
-      </div>
-
-    </div>
-
+    </div> <!-- end of container -->
   </body>
 </html>

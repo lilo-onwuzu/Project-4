@@ -2,43 +2,53 @@
 function MakeArrays(){
   this.compile = [];
 }
-function Details(orderName, address, note){
+function PersonalDetails(orderName,address,note){
   this.orderName = orderName;
   this.address = address;
   this.note = note;
   this.compile = [];
 }
-function PizzaDetails(size, topping){
-  this.size = size;
+function PizzaDetails(pizzaSize,topping){
+  this.pizzaSize = pizzaSize;
   this.topping = topping;
   this.compile = [];
 }
 function reset(){
   $("input.new-orderName").val("");
   $("input.new-address").val("");
+  $("input#note").val("");
 }
-function Pricing(basePrice, toppingPrice, pizzaNumber, toppingNumber){
+function Pricing(basePrice,toppingPrice,pizzaNumber,toppingNumber){
   this.basePrice = basePrice;
   this.toppingPrice = toppingPrice;
   this.pizzaNumber = pizzaNumber;
   this.toppingNumber = toppingNumber;
 }
-Pricing.compute = function(){
-  // single object method
+Pricing.prototype.compute = function(){
+  // prototype
   return this.pizzaNumber*(this.basePrice + (this.toppingNumber * this.toppingPrice));
 };
 
 // User Interface Logic//
 $(document).ready(function(){
 
-  $("#method").select(function(){
-    $(".hideAddress").show();
-  });
+  var importPizzaNumber = 0;
+  var importToppingNumber = 0;
+  var newMainArrays = new MakeArrays();
+  var arrayTopping = new MakeArrays();
+  var newPizzaDetails = new PizzaDetails();
+  var arrayPizzaDetails = new PizzaDetails();
+  var importBasePrice = 10;
+  var importToppingPrice = 2;
 
-  $(".addPizza").click(function(event){
+  // $("#selectDelivery").click(function(){
+  //   $(".hideAddress").show();
+  // }); // select listener to show address field when you select delivery option
 
-    $(".clientDetails").append(
-      '<div class= "new-pizzaDetails">' +
+  $(".inputPizza").click(function(){
+    // click listener to append class new-pizzaDetails to client Details and initial input field with id "new-pizzaDetails"
+    $("#pizzaDetails").append(
+      '<div class= "classPizzaDetails">' +
         '<div class="form-group size">' +
           '<strong>Choose a size:</strong>' +
             '<select id="size">' +
@@ -51,103 +61,102 @@ $(document).ready(function(){
           '<strong>Choose Toppings:</strong>' +
           '<div class="checkbox">' +
             '<label>' +
-            '<input type="checkbox" name="topping" value="Bacon">' +
+            '<input class="new-topping" type="checkbox" name="topping" value="Bacon">' +
              'Bacon' +
             '</label>' +
           '</div>' +
-          '<div class="radio">' +
+          '<div class="checkbox">' +
             '<label>' +
-            '<input type="checkbox" name="topping" value="Pepperoni">' +
+            '<input class="new-topping" type="checkbox" name="topping" value="Pepperoni">' +
             'Pepperoni' +
             '</label>' +
           '</div>' +
-          '<div class="radio">' +
+          '<div class="checkbox">' +
             '<label>' +
-            '<input type="checkbox" name="topping" value="Pineapple">' +
+            '<input class="new-topping" type="checkbox" name="topping" value="Pineapple">' +
             'Pineapple' +
             '</label>' +
           '</div>' +
-          '<div class="radio">' +
+          '<div class="checkbox">' +
             '<label>' +
-            '<input type="checkbox" name="topping" value="Spinach">' +
+            '<input class="new-topping" type="checkbox" name="topping" value="Spinach">' +
             'Spinach' +
             '</label>' +
           '</div>' +
-        '</div>' +
-        '<div class="radio">' +
-          '<label>' +
-          '<input type="checkbox" name="topping" value="Green Peppers">' +
-          'Green Peppers' +
-          '</label>' +
-        '</div>' +
-       '</div>');
+          '<div class="checkbox">' +
+            '<label>' +
+            '<input class="new-topping" type="checkbox" name="topping" value="Green Peppers">' +
+            'Green Peppers' +
+            '</label>' +
+          '</div>' +
+        '</div>');
   });
-
-  $(".removePizza").click(function(){
-    $("#clientDetails").children(".pizzaDetails").last().remove();
-  });
-
-  var importPizzaNumber = 0;
-  var importToppingNumber = 0;
-  var newMainArrays = new MakeArrays();
-  var importTopping = new MakeArrays();
-  var newPizzaDetails = new MakeArrays();
+  $(".removePizza").click(function(event){
+    $("#pizzaDetails").children(".classPizzaDetails").last().remove();
+  }); // click listener to remove the last appended input field
 
   $("form#order").submit(function(event){
     event.preventDefault();
 
-    // module to import user details
+    // module to import user details on submit. Find these values in the form
     var importOrderName = $(this).find("input#orderName").val();
     var importAddress = $(this).find("input#address").val();
     var importNote = $(this).find("input#note").val();
-    var newDetails = new Details(importOrderName, importAddress, importNote);
-    newMainArrays.compile.push(newDetails);
+    var newPersonalDetails = new PersonalDetails(importOrderName,importAddress,importNote);
+    newMainArrays.compile.push(newPersonalDetails); // make an array to push Personal Details once
+    // now newMainArrays = {{newPersonalDetails}}
 
-    // pizza loop
-    $(".new-pizzaDetails").each(function(){
-
-      importPizzaNumber++; // increment pizzaNumber at each loop cycle
+    // pizza loop. Each is to objects as ForEach is to arrays.
+    $(".classPizzaDetails").each(function(){
       var importSize = $(this).find("#size").val();
-
+      importPizzaNumber+=1; // increment pizzaNumber at each loop cycle
       // toppings loop inside pizza loop
-      $(".checkbox").each(function(){
-        importToppingNumber++; // increment toppingNumber at each loop cycle
-        if ($("input.checkbox") === true){
-          importTopping.compile.push(value);
+      $(".topping").each(function(){
+        if ($(this).find(".new-topping").checked){
+          arrayTopping.compile.push($(this).val()); // compile array of toppings per pizza
+          importToppingNumber+=1 // increment toppingNumber at each topping loop cycle
         }
       }); // end of toppings loop
+      var importTopping = arrayTopping;
+      console.log(importToppingNumber);
 
-      // add pizzadetails object to main array
-      var newPizzaDetails = new PizzaDetails(importSize, importTopping);
-      newMainArrays.compile.push(newPizzaDetails);
-
+      newPizzaDetails = new PizzaDetails(importSize,importTopping); // newPizzaDetails gets re-assigned every cycle
+      arrayTopping = new MakeArrays(); // toppings array gets re-assigned every cycle after push for next cycle
+      // add pizzadetails object to main array and loop
+      arrayPizzaDetails.compile.push(newPizzaDetails); // array of pizzadetails
     }); // end of pizza loop.
-    // MainArrays = [newDetails,newPizzaDetails1,newPizzaDetails2...]=[(name, address, note),(size1,toppings1),(size2,toppings2)...]
+    newMainArrays.compile.push(newPizzaDetails); // full array
+    console.log(arrayPizzaDetails.compile);
+
+    // newMainArrays = {{newPersonalDetails},{newPizzaDetails1},{newPizzaDetails2}...}={{name, address, note},{size1,toppings1},{size2,toppings2}...}
+    // arrayPizzaDetails = {{newPizzaDetails1},{newPizzaDetails2}...}
+
 
     // module to calculate price
-    var importBasePrice = 10;
-    var importToppingPrice = 2;
-    new Pricing(importBasePrice, importToppingPrice, importPizzaNumber, importToppingNumber);
-    var total = Pricing.compute();
+    var newPricing = new Pricing(importBasePrice,importToppingPrice,importPizzaNumber,importToppingNumber);
+    var total = newPricing.compute();
+
 
     // Module to display results from MainArrays "database"
-    $(".addName").text(newDetails.orderName);
-    $(".addAddress").text(newDetails.address);
-    $(".addNotes").text(newDetails.note);
+    $(".addName").text(newPersonalDetails.orderName);
+    $(".addAddress").text(newPersonalDetails.address);
+    $(".addNotes").text(newPersonalDetails.note);
     $(".addTotal").text(total);
 
-    newMainArrays.compile.forEach(function(newMainArray){
-      $("#list").append('<li><span class="clickToView">'+ newMainArray.newPizzaDetails.size + " Pizza" + '</span></li>');
-
-      $(".clickToView").last().click(function(){
-        importTopping.compile.forEach(function(topping){
-          $("#addTopping").append('<li>'+ topping + '</li>');
-        }); // end of import toppings loop
-        $(".orderInfo").toggle();
-      }); // end of click to view
-    }); // end of order list
-
-    $(".orderList").show();
+    // // display loop
+    // arrayPizzaDetails.compile.forEach(function(arrayPizzaDetail){
+    //   $("#pizzaList").append('<li><span class="clickToView">'+ arrayPizzaDetail.pizzaSize + " Pizza" + '</span></li>');
+    //   $(".addSize").text(arrayPizzaDetail.pizzaSize);
+    //
+    //   $(".clickToView").last().click(function(){
+    //     arrayPizzaDetail.topping.compile.forEach(function(top){
+    //       $("#addTopping").append('<li>'+ top + '</li>');
+    //     }); // end of import toppings loop
+    //     $(".orderInfo").toggle();
+    //   }); // end of click to view
+    // }); // end of pizza list
+    //
+    // $(".orderList").show();
 
     reset();
 

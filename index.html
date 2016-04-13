@@ -38,7 +38,7 @@
             <strong>Choose Pick-Up or Delivery:</strong>
               <select id="method">
               <option>Pick-Up</option>
-              <option>Delivery</option>
+              <option id="selectDelivery">Delivery</option>
               </select>
           </div>
 
@@ -49,7 +49,7 @@
 
         </div> <!-- end of client details -->
 
-        <div id= "pizzaDetails" class= "new-pizzaDetails">
+        <div id= "pizzaDetails" class= "classPizzaDetails">
 
           <div class="form-group size">
             <strong>Choose a size:</strong>
@@ -64,36 +64,35 @@
             <strong>Choose Toppings:</strong>
             <div class="checkbox">
               <label>
-              <input id="new-bacon" type="checkbox" name="topping" value="Bacon">
+              <input class="new-topping" type="checkbox" name="topping" value="Bacon">
                 Bacon
               </label>
             </div>
             <div class="checkbox">
               <label>
-              <input id="new-pepperoni" type="checkbox" name="topping" value="Pepperoni">
+              <input class="new-topping" type="checkbox" name="topping" value="Pepperoni">
               Pepperoni
               </label>
             </div>
             <div class="checkbox">
               <label>
-              <input id="new-pineapple" type="checkbox" name="topping" value="Pineapple">
+              <input class="new-topping" type="checkbox" name="topping" value="Pineapple">
               Pineapple
               </label>
             </div>
             <div class="checkbox">
               <label>
-              <input id="new-spinach" type="checkbox" name="topping" value="Spinach">
+              <input class="new-topping" type="checkbox" name="topping" value="Spinach">
               Spinach
               </label>
             </div>
             <div class="checkbox">
               <label>
-              <input id="new-peppers" type="checkbox" name="topping" value="Green Peppers">
+              <input class="new-topping" type="checkbox" name="topping" value="Green Peppers">
               Green Peppers
               </label>
             </div>
-          </div>
-          <!-- end of form-group topping -->
+          </div> <!-- end of form-group topping -->
 
         </div> <!-- end of pizza details div -->
 
@@ -103,25 +102,28 @@
         </div>
 
         <button type="submit" class="btn"><strong>Place Order</strong></button>
-        <button class="btn addPizza"><strong>Add Another Pizza</strong></button>
-        <button class="btn removePizza"><strong>Remove Pizza</strong></button>
-
-        <div class="output">
-          <div class="orderList">
-            <p><em><span class="addName"></span>, your pizza is on the way to <span class="addAddress"></span>!</em></p>
-            <p>You will be charged $<span class="addTotal"></span></p>
-            <h4><strong>Driver's Notes:</strong></h4>
-            <p><span class= "addNotes"></span></p>
-            <h4><strong>Itemized Order List:</strong></h4>
-            <ul><li id="list"></li></ul>
-          </div>
-
-          <div class="orderInfo">
-            <ul><li id="addTopping"></li></ul>
-          </div>
-        </div> <!-- end of output div -->
+        <p class="btn inputPizza"><strong>Add Another Pizza</strong></p>
+        <p class="btn removePizza"><strong>Remove Pizza</strong></p>
+        <!-- All buttons within a form are linked together. Avoid using more than one -->
 
       </form>
+
+      <div class="output">
+        <div class="orderList">
+          <p><em><span class="addName"></span>, your pizza is on the way to <span class="addAddress"></span>!</em></p>
+          <p>You will be charged $<span class="addTotal"></span></p>
+          <h4><strong>Driver's Notes:</strong></h4>
+          <p><span class= "addNotes"></span></p>
+          <h4><strong>Itemized Order List:</strong></h4>
+          <ul id="pizzaList"></ul>
+        </div>
+
+        <div class="orderInfo">
+          <h5><span class="addSize"></span></h5>
+          <ul id="addTopping"></ul>
+        </div>
+      </div> <!-- end of output div -->
+
     </div> <!-- end of container -->
   </body>
 </html>

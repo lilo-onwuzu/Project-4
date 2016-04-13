@@ -111,9 +111,9 @@ $(document).ready(function(){
       var importSize = $(this).find("#size").val();
       importPizzaNumber+=1; // increment pizzaNumber at each loop cycle
       // toppings loop inside pizza loop
-      $(".topping").each(function(){
-        if ($(this).find(".new-topping").checked){
-          arrayTopping.compile.push($(this).val()); // compile array of toppings per pizza
+      $(".checkbox").find(".new-topping").each(function(){
+        if (this.checked){
+          arrayTopping.compile.push(this.value); // compile array of toppings per pizza
           importToppingNumber+=1 // increment toppingNumber at each topping loop cycle
         }
       }); // end of toppings loop

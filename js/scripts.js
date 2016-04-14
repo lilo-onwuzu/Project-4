@@ -43,12 +43,11 @@ $(document).ready(function(){
   var total = 0;
   var importBasePrice = 0;
 
-//   if ($("option:selected").val() === "Pick-Up"){
-//   $(".hideAddress").addClass("test")
-// };
-
-
-  // select listener to show address field when you select delivery option
+  $(".method").change(function(){
+      if ($("option:selected").val() === "Delivery"){
+        $(".hideAddress").show();
+    };
+  }); // change listener to show address field when you select delivery option
 
   $(".inputPizza").click(function(){
     // click listener to append class new-pizzaDetails to client Details and initial input field with id "new-pizzaDetails"

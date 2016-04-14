@@ -1,4 +1,4 @@
-.test{
+.hideAddress{
   display: none;
 }
 .orderList{
@@ -44,7 +44,7 @@ body{
 .two{
   float : left;
   background-color: #DDB227;
-  height: 800px;
+  height: 1200px;
   color: white;
   padding-left: 20px;
   padding-right: 20px;

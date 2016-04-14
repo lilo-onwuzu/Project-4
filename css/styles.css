@@ -1,4 +1,4 @@
-.hideAddress{
+.test{
   display: none;
 }
 .orderList{
@@ -26,7 +26,7 @@
 }
 .clickToView {
   cursor: pointer;
-  /*color: #0088cc;*/
+  color: #0088cc;
 }
 .clickToView:hover {
   text-decoration: underline;

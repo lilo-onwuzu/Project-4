@@ -157,12 +157,14 @@ $(document).ready(function(){
       $("#pizzaList").append('<li><span class="clickToView">'+ arrayPizzaDetail.pizzaSize + " Pizza" + '</span></li>');
 
       $(".clickToView").last().click(function(){
+        $("#addTopping").children("li").remove();
         $(".addSize").text(arrayPizzaDetail.pizzaSize);
         arrayPizzaDetail.topping.compile.forEach(function(top){
           $("#addTopping").append('<li>'+ top + '</li>');
         }); // end of import toppings loop
         $(".orderInfo").toggle();
       }); // end of click to view
+
     }); // end of pizza list
 
     $(".orderList").show();

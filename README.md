@@ -1,32 +1,31 @@
-# _Pizza Order_
+## _Title_
+	Epicodus- Introduction to Programming - Pizza Order
+	
+#### _Creator_
+	Lilo Onwuzu 
+	
+#### _Date_
+	04.08.2016
 
-#### _Week 4 Project Epicodus_
+#### _Description_
+	This code allows the user to order multiple pizzas with different kinds of toppings on each pizza. 
+	The user can add more fields to order more pizzas with different toppings. 
+	It presents an itemized list of the order after the order is placed.
+	It calculates the amount charged based on the pizza size and number of toppings.
 
-#### By _**Ililochi Onwuzu**_
+#### _Setup/Installation Requirements_
+	Clone this repository before setting up
+	Not database backed
 
-## Description
+#### _Known Bugs_
+ 	None
 
-_This code allows the user to order multiple pizzas with different kinds of toppings on each pizza. It uses a form to collect details of the pizza. The user can add more fields to order more pizzas with different toppings. It calculates the amount charged based on the pizza size and number of toppings and presents an itemized list of the order after the order is placed. Practiced: Object Oriented Javascript, Objects within Objects, Arrays, Looping. The page is styled using both bootstraps CSS as well as a custom CSS file_
+#### _Support and contact details_
+	lpr422@gmail.com
+	
+#### _Technologies Used_
+	HTML, Custom CSS, Bootstrap CSS, Javascript, JQuery
 
-## Setup/Installation Requirements
-
-* _Clone this repository to set up_
-
-
-## Known Bugs
-
-_None_
-
-## Support and contact details
-
-_lpr422@gmail.com_
-
-## Technologies Used
-
-_HTML, CSS, Javascript, JQuery_
-
-### License
-
-*This Software Is Licensed Under MIT.*
-
-Copyright (c) 2015 **_Onwuzu, LPO Inc._**
+#### _License_
+	This software is licensed under the MIT license
+	Copyright (c) 2016 IPONWUZU

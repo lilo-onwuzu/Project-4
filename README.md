@@ -23,7 +23,7 @@
 	lpr422@gmail.com
 	
 #### _Technologies Used_
-	HTML, Custom CSS, Bootstrap CSS, Javascript, JQuery
+	HTML, Custom CSS, Bootstrap CSS, Javascript, JQuery, JS Objects
 
 #### _License_
 	This software is licensed under the MIT license

@@ -14,7 +14,8 @@
 	It calculates the amount charged based on the pizza size and number of toppings.
 
 #### _Setup/Installation Requirements_
-	Clone this repository before setting up
+	Clone this repository 
+	Open index.html file in browser
 
 #### _Known Bugs_
  	None

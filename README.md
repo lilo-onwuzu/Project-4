@@ -15,7 +15,6 @@
 
 #### _Setup/Installation Requirements_
 	Clone this repository before setting up
-	Not database backed
 
 #### _Known Bugs_
  	None
